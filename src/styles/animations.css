@@ -1,0 +1,282 @@
+/* ==========================================================================
+   Counter — motion
+   Entrance runs once on load, in sequence. Everything else is triggered by
+   state: a value change, a reveal, a hover.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Keyframes
+   -------------------------------------------------------------------------- */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes track-in {
+  from {
+    opacity: 0;
+    letter-spacing: 0.52em;
+  }
+}
+
+@keyframes word-up {
+  from {
+    transform: translateY(112%);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.965);
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes entry-in {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+}
+
+@keyframes step-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.9);
+  }
+}
+
+@keyframes status-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+/* counter value ------------------------------------------------------------ */
+@keyframes value-up {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.92);
+  }
+  55% {
+    filter: drop-shadow(0 0 30px var(--tone-color));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+  }
+}
+
+@keyframes value-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.96);
+  }
+  55% {
+    filter: drop-shadow(0 0 22px var(--tone-color));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+  }
+}
+
+@keyframes value-reset {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.84) rotate(-7deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* ambient ------------------------------------------------------------------ */
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 currentColor;
+    opacity: 1;
+  }
+  70% {
+    box-shadow: 0 0 0 7px transparent;
+    opacity: 0.55;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+    opacity: 1;
+  }
+}
+
+@keyframes drift-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-3%, 4%, 0) scale(1.08);
+  }
+}
+
+@keyframes drift-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.06);
+  }
+  to {
+    transform: translate3d(4%, -5%, 0) scale(1);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    opacity: 0.05;
+  }
+  50% {
+    transform: translateY(-26px);
+    opacity: 0.24;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.05;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Entrance sequence — background, nav, then the hero top to bottom
+   -------------------------------------------------------------------------- */
+.ambient {
+  animation: fade-in 1100ms var(--ease) both;
+}
+
+.nav__inner {
+  animation: drop-in 640ms var(--ease) both 80ms;
+}
+
+.brand {
+  animation: rise-in 600ms var(--ease) both 180ms;
+}
+
+.hero__eyebrow {
+  animation: track-in 780ms var(--ease) both 240ms;
+}
+
+.word__inner {
+  animation: word-up 760ms var(--ease) both;
+  animation-delay: var(--d, 0ms);
+}
+
+.hero__lead {
+  animation: rise-in 700ms var(--ease) both 760ms;
+}
+
+.hero__actions {
+  animation: rise-in 700ms var(--ease) both 860ms;
+}
+
+.hero__facts {
+  animation: rise-in 700ms var(--ease) both 950ms;
+}
+
+.section--counter .panel {
+  animation: pop-in 820ms var(--ease) both 1000ms;
+}
+
+/* --------------------------------------------------------------------------
+   State-driven motion
+   -------------------------------------------------------------------------- */
+.counter__value--increment {
+  animation: value-up 480ms var(--ease) both;
+}
+
+.counter__value--decrement {
+  animation: value-down 440ms var(--ease) both;
+}
+
+.counter__value--reset {
+  animation: value-reset 620ms var(--ease-spring) both;
+}
+
+.status {
+  animation: status-in 340ms var(--ease) both;
+}
+
+.controls__step-value {
+  animation: step-pop 320ms var(--ease-spring) both;
+}
+
+.entry {
+  animation: entry-in 420ms var(--ease) both;
+}
+
+.menu.is-open {
+  animation: menu-in 320ms var(--ease) both;
+}
+
+.menu__link {
+  animation: rise-in 460ms var(--ease) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* --------------------------------------------------------------------------
+   Scroll reveal — the section lifts, its cards fade in on a stagger
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 720ms var(--ease),
+    transform 720ms var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal.is-visible .feature,
+.reveal.is-visible .stat,
+.reveal.is-visible .log {
+  animation: fade-in 620ms var(--ease) both;
+  animation-delay: var(--d, 120ms);
+}

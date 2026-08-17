@@ -1,0 +1,228 @@
+/* ==========================================================================
+   Counter — responsive rules
+   Loaded last so these overrides win at equal specificity.
+   ========================================================================== */
+
+/* wide desktops ----------------------------------------------------------- */
+@media (min-width: 1440px) {
+  :root {
+    --shell: 1240px;
+  }
+
+  .hero {
+    padding-top: 120px;
+  }
+}
+
+/* laptops ----------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .features,
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* tablets ----------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .nav__links {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .menu.is-open {
+    display: block;
+  }
+
+  .controls__row {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* large phones ------------------------------------------------------------ */
+@media (max-width: 720px) {
+  :root {
+    --nav-h: 64px;
+  }
+
+  .section {
+    padding-block: 64px;
+  }
+
+  .features {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero__actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero__facts {
+    gap: 22px 34px;
+  }
+
+  .entry {
+    grid-template-columns: 34px 58px minmax(0, 1fr);
+    row-gap: 6px;
+    padding-block: 14px;
+  }
+
+  .entry__time {
+    grid-column: 2 / -1;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .footer__meta {
+    text-align: left;
+  }
+}
+
+/* phones ------------------------------------------------------------------ */
+@media (max-width: 520px) {
+  .theme-toggle {
+    padding: 8px 11px;
+  }
+
+  .theme-toggle__label {
+    display: none;
+  }
+
+  .counter,
+  .controls,
+  .settings {
+    border-radius: 22px;
+  }
+
+  .op {
+    width: 68px;
+    height: 68px;
+    border-radius: 22px;
+  }
+
+  .chips {
+    width: 100%;
+  }
+
+  .chip {
+    flex: 1 1 56px;
+  }
+
+  .btn--reset,
+  .btn--primary,
+  .btn--ghost {
+    width: 100%;
+  }
+
+  .rail__scale {
+    font-size: 9.5px;
+    letter-spacing: 0.06em;
+  }
+
+  .stat__caption {
+    font-size: 0.8125rem;
+  }
+
+  .log__bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* small phones ------------------------------------------------------------ */
+@media (max-width: 420px) {
+  .stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .controls__row {
+    gap: 12px;
+  }
+
+  .controls__step {
+    min-width: 64px;
+  }
+
+  .op {
+    width: 62px;
+    height: 62px;
+    border-radius: 20px;
+  }
+
+  .op__glyph {
+    font-size: 1.65rem;
+  }
+
+  .entry {
+    grid-template-columns: 30px 52px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .entry__icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+  }
+
+  .hero__facts {
+    padding-top: 22px;
+  }
+}
+
+/* touch: drop the hover lift, keep the press feedback ---------------------- */
+@media (hover: none) {
+  .btn:hover,
+  .chip:hover,
+  .feature:hover,
+  .stat:hover,
+  .op:hover:not(:disabled) {
+    transform: none;
+  }
+
+  .feature:hover,
+  .stat:hover {
+    background: var(--surface);
+    box-shadow: none;
+  }
+}
+
+/* reduced motion ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .ambient__glow,
+  .particle,
+  .empty__icon,
+  .status__dot {
+    animation: none !important;
+  }
+}
