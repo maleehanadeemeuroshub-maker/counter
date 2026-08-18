@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const LINKS = [
   { href: '#counter', label: 'Counter' },
@@ -43,12 +43,37 @@ function ThemeIcon({ theme }) {
   );
 }
 
+const HIDE_THRESHOLD = 80;
+
 export default function Navbar({ theme, onToggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
+    lastScrollY.current = window.scrollY;
+
+    const onScroll = () => {
+      if (ticking.current) return;
+      ticking.current = true;
+
+      requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        setScrolled(currentScrollY > 10);
+
+        if (currentScrollY <= HIDE_THRESHOLD) {
+          setHidden(false);
+        } else {
+          setHidden(currentScrollY > lastScrollY.current);
+        }
+
+        lastScrollY.current = currentScrollY;
+        ticking.current = false;
+      });
+    };
+
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -81,7 +106,7 @@ export default function Navbar({ theme, onToggleTheme }) {
   const nextTheme = theme === 'dark' ? 'light' : 'dark';
 
   return (
-    <header className={`nav${scrolled ? ' is-scrolled' : ''}${open ? ' is-open' : ''}`}>
+    <header className={`nav${scrolled ? ' is-scrolled' : ''}${open ? ' is-open' : ''}${hidden ? ' is-hidden' : ''}`}>
       <div className="nav__inner shell">
         <a className="brand" href="#top" onClick={() => setOpen(false)}>
           <Mark />

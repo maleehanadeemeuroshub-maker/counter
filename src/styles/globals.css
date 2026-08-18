@@ -498,11 +498,17 @@ main {
   position: sticky;
   top: 0;
   z-index: 60;
+  transform: translateY(0);
   transition:
     background-color var(--t-mid) var(--ease),
     border-color var(--t-mid) var(--ease),
-    backdrop-filter var(--t-mid) var(--ease);
+    backdrop-filter var(--t-mid) var(--ease),
+    transform var(--t-mid) var(--ease);
   border-bottom: 1px solid transparent;
+}
+
+.nav.is-hidden {
+  transform: translateY(-100%);
 }
 
 .nav.is-scrolled,
