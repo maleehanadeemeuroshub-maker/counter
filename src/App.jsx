@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 import Ambient from './components/Ambient.jsx';
-import FlowWaveBackground from './components/FlowWaveBackground.jsx';
 import Navbar from './components/Navbar.jsx';
 import Hero from './components/Hero.jsx';
 import CounterCard from './components/CounterCard.jsx';
@@ -41,11 +40,6 @@ const isTypingTarget = (target) =>
 export default function App() {
   const counter = useCounter();
   const [theme, setTheme] = useState(readInitialTheme);
-  const [reducedMotion, setReducedMotion] = useState(
-    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-  );
-  // The 3D scene falls back to the flat Ambient backdrop if WebGL init throws.
-  const [flowWaveFailed, setFlowWaveFailed] = useState(false);
 
   /* Theme: reflected on <html> so every CSS variable switches at once. */
   useEffect(() => {
@@ -55,19 +49,6 @@ export default function App() {
       ?.setAttribute('content', theme === 'dark' ? '#0E0C09' : '#F6F1E7');
     saveTheme(theme);
   }, [theme]);
-
-  /* The Flow Wave background only suits the dark palette and only runs when
-     motion is welcome — light theme and reduced-motion both get the plain,
-     static Ambient backdrop instead. */
-  useEffect(() => {
-    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const onChange = (event) => setReducedMotion(event.matches);
-    query.addEventListener('change', onChange);
-    return () => query.removeEventListener('change', onChange);
-  }, []);
-
-  const showFlowWave = theme === 'dark' && !reducedMotion && !flowWaveFailed;
-  const handleFlowWaveError = useCallback(() => setFlowWaveFailed(true), []);
 
   const toggleTheme = useCallback(() => {
     const root = document.documentElement;
@@ -111,11 +92,7 @@ export default function App() {
 
   return (
     <>
-      {showFlowWave ? (
-        <FlowWaveBackground active onError={handleFlowWaveError} />
-      ) : (
-        <Ambient />
-      )}
+      <Ambient />
       <a className="skip-link" href="#counter">
         Skip to the counter
       </a>
