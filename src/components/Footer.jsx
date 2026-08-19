@@ -3,6 +3,7 @@ const LINKS = [
   { href: '#features', label: 'Features' },
   { href: '#statistics', label: 'Statistics' },
   { href: '#history', label: 'History' },
+  { href: '/flow-wave.html', label: 'Flow Wave', external: true },
 ];
 
 export default function Footer() {
@@ -16,7 +17,12 @@ export default function Footer() {
 
         <nav className="footer__links" aria-label="Footer">
           {LINKS.map((link) => (
-            <a key={link.href} className="footer__link" href={link.href}>
+            <a
+              key={link.href}
+              className="footer__link"
+              href={link.href}
+              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
               {link.label}
             </a>
           ))}

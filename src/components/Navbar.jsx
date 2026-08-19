@@ -5,6 +5,7 @@ const LINKS = [
   { href: '#features', label: 'Features' },
   { href: '#statistics', label: 'Statistics' },
   { href: '#history', label: 'History' },
+  { href: '/flow-wave.html', label: 'Flow Wave', external: true },
 ];
 
 function Mark() {
@@ -115,7 +116,12 @@ export default function Navbar({ theme, onToggleTheme }) {
 
         <nav className="nav__links" aria-label="Sections">
           {LINKS.map((link) => (
-            <a key={link.href} className="nav__link" href={link.href}>
+            <a
+              key={link.href}
+              className="nav__link"
+              href={link.href}
+              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
               {link.label}
             </a>
           ))}
@@ -156,6 +162,7 @@ export default function Navbar({ theme, onToggleTheme }) {
               href={link.href}
               style={{ '--d': `${60 + index * 55}ms` }}
               onClick={() => setOpen(false)}
+              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             >
               <span>{link.label}</span>
               <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
