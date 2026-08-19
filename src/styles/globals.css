@@ -319,6 +319,16 @@ main {
   background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 55%, var(--bg) 100%);
 }
 
+.flow-wave {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
 .ambient__grid {
   position: absolute;
   inset: -8%;
