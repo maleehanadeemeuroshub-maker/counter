@@ -155,21 +155,6 @@
   }
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
-    opacity: 0.05;
-  }
-  50% {
-    transform: translateY(-26px);
-    opacity: 0.24;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 0.05;
-  }
-}
-
 @keyframes breathe {
   0%,
   100% {

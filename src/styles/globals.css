@@ -12,35 +12,37 @@
 :root {
   color-scheme: dark;
 
-  /* palette — dark (primary experience) */
-  --bg: #080b12;
-  --bg-2: #0f1420;
-  --surface: #141a26;
-  --surface-hover: #1a2231;
-  --primary: #7c5cff;
-  --primary-hover: #9278ff;
-  --accent: #20d6c7;
-  --warm: #ffb86b;
-  --text: #f5f7fb;
-  --text-2: #a7afbf;
-  --muted: #687286;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
+  /* palette — dark (primary experience). Warm graphite, not the usual cold
+     indigo-on-black — the counter's tones (amber/sage/rust) read as a
+     deliberate identity rather than a default SaaS theme. */
+  --bg: #0e0c09;
+  --bg-2: #161310;
+  --surface: #1b1712;
+  --surface-hover: #231e17;
+  --primary: #cd9046;
+  --primary-hover: #e0a75c;
+  --accent: #6f9c85;
+  --warm: #c1613c;
+  --text: #f3ede1;
+  --text-2: #b3a692;
+  --muted: #7c7161;
+  --border: rgba(243, 237, 225, 0.08);
+  --border-strong: rgba(243, 237, 225, 0.16);
 
   /* atmosphere */
-  --grid-line: rgba(255, 255, 255, 0.03);
-  --glow-primary: rgba(124, 92, 255, 0.3);
-  --glow-accent: rgba(32, 214, 199, 0.16);
-  --glow-warm: rgba(255, 184, 107, 0.12);
-  --grain-opacity: 0.038;
-  --shadow-card: 0 30px 70px -40px rgba(0, 0, 0, 0.95);
-  --shadow-lift: 0 34px 80px -42px rgba(0, 0, 0, 1);
-  --shadow-brand: 0 18px 40px -18px rgba(124, 92, 255, 0.55);
-  --sheen: rgba(255, 255, 255, 0.06);
-  --scrim: rgba(8, 11, 18, 0.72);
+  --grid-line: rgba(243, 237, 225, 0.03);
+  --glow-primary: rgba(205, 144, 70, 0.22);
+  --glow-accent: rgba(111, 156, 133, 0.14);
+  --shadow-card: 0 30px 70px -40px rgba(0, 0, 0, 0.9);
+  --shadow-lift: 0 34px 80px -42px rgba(0, 0, 0, 0.95);
+  --shadow-brand: 0 16px 34px -18px rgba(205, 144, 70, 0.5);
+  --sheen: rgba(255, 255, 255, 0.05);
+  --scrim: rgba(14, 12, 9, 0.86);
 
-  /* type */
-  --font-display: 'Sora', 'Segoe UI', system-ui, sans-serif;
+  /* type — an editorial serif for display sits against mono labels and a
+     plain-spoken body face, instead of the geometric-sans pairing every
+     generated dashboard reaches for. */
+  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
   --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
 
@@ -75,30 +77,28 @@
 [data-theme='light'] {
   color-scheme: light;
 
-  --bg: #f2f4f9;
-  --bg-2: #e9ecf4;
-  --surface: #ffffff;
-  --surface-hover: #f7f8fd;
-  --primary: #5b3fe0;
-  --primary-hover: #4a2fcc;
-  --accent: #0e9c90;
-  --warm: #bf6d1f;
-  --text: #0d1018;
-  --text-2: #4a5468;
-  --muted: #7b8499;
-  --border: rgba(13, 16, 24, 0.1);
-  --border-strong: rgba(13, 16, 24, 0.2);
+  --bg: #f6f1e7;
+  --bg-2: #eee6d6;
+  --surface: #fffdf8;
+  --surface-hover: #f7f0e2;
+  --primary: #a66b26;
+  --primary-hover: #8f5a1c;
+  --accent: #3f6d57;
+  --warm: #a1462a;
+  --text: #1c1712;
+  --text-2: #5c5346;
+  --muted: #8a8071;
+  --border: rgba(28, 23, 18, 0.1);
+  --border-strong: rgba(28, 23, 18, 0.2);
 
-  --grid-line: rgba(13, 16, 24, 0.035);
-  --glow-primary: rgba(91, 63, 224, 0.16);
-  --glow-accent: rgba(14, 156, 144, 0.12);
-  --glow-warm: rgba(191, 109, 31, 0.1);
-  --grain-opacity: 0.022;
-  --shadow-card: 0 26px 60px -38px rgba(24, 28, 48, 0.55);
-  --shadow-lift: 0 30px 66px -34px rgba(24, 28, 48, 0.42);
-  --shadow-brand: 0 16px 34px -16px rgba(91, 63, 224, 0.45);
-  --sheen: rgba(13, 16, 24, 0.03);
-  --scrim: rgba(242, 244, 249, 0.78);
+  --grid-line: rgba(28, 23, 18, 0.035);
+  --glow-primary: rgba(166, 107, 38, 0.12);
+  --glow-accent: rgba(63, 109, 87, 0.1);
+  --shadow-card: 0 26px 60px -38px rgba(40, 30, 16, 0.4);
+  --shadow-lift: 0 30px 66px -34px rgba(40, 30, 16, 0.32);
+  --shadow-brand: 0 16px 34px -16px rgba(166, 107, 38, 0.38);
+  --sheen: rgba(28, 23, 18, 0.03);
+  --scrim: rgba(246, 241, 231, 0.9);
 }
 
 /* --------------------------------------------------------------------------
@@ -169,9 +169,9 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.08;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
 }
 
 kbd {
@@ -354,38 +354,6 @@ main {
   animation: drift-b 34s ease-in-out infinite alternate;
 }
 
-.ambient__glow--warm {
-  width: min(520px, 80vw);
-  aspect-ratio: 1;
-  bottom: -18vh;
-  left: -12vw;
-  background: radial-gradient(circle, var(--glow-warm) 0%, transparent 70%);
-  animation: drift-a 40s ease-in-out infinite alternate-reverse;
-}
-
-.ambient__particles {
-  position: absolute;
-  inset: 0;
-}
-
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  background: var(--text-2);
-  opacity: 0.16;
-  animation-name: float;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
-.ambient__grain {
-  position: absolute;
-  inset: 0;
-  opacity: var(--grain-opacity);
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
 /* --------------------------------------------------------------------------
    4. Buttons
    -------------------------------------------------------------------------- */
@@ -459,16 +427,16 @@ main {
 
 .btn--primary {
   border-color: transparent;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
-  color: #fff;
+  background: var(--primary);
+  color: var(--bg);
   box-shadow: var(--shadow-brand);
 }
 
 .btn--primary:hover {
-  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
+  background: var(--primary-hover);
   box-shadow:
     var(--shadow-brand),
-    0 0 0 4px rgba(124, 92, 255, 0.14);
+    0 0 0 4px color-mix(in srgb, var(--primary) 18%, transparent);
 }
 
 .btn--ghost {
@@ -502,7 +470,7 @@ main {
   transition:
     background-color var(--t-mid) var(--ease),
     border-color var(--t-mid) var(--ease),
-    backdrop-filter var(--t-mid) var(--ease),
+    box-shadow var(--t-mid) var(--ease),
     transform var(--t-mid) var(--ease);
   border-bottom: 1px solid transparent;
 }
@@ -515,8 +483,7 @@ main {
 .nav.is-open {
   background: var(--scrim);
   border-bottom-color: var(--border);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
-  backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: 0 12px 30px -22px rgba(0, 0, 0, 0.5);
 }
 
 .nav__inner {
@@ -543,8 +510,8 @@ main {
   width: 32px;
   height: 32px;
   border-radius: 10px;
-  background: linear-gradient(140deg, var(--primary) 0%, var(--primary-hover) 100%);
-  color: #fff;
+  background: var(--primary);
+  color: var(--bg);
   box-shadow: var(--shadow-brand);
   transition: transform var(--t-mid) var(--ease-spring);
 }
@@ -664,8 +631,6 @@ main {
   display: none;
   border-top: 1px solid var(--border);
   background: var(--scrim);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
 }
 
 .menu__list {
@@ -705,21 +670,21 @@ main {
 
 .hero__title {
   margin-top: 22px;
-  font-size: clamp(2.6rem, 8.4vw, 5.6rem);
-  font-weight: 800;
-  line-height: 0.99;
-  letter-spacing: -0.045em;
+  font-size: clamp(2.6rem, 8vw, 5.2rem);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
 }
 
 .hero__line {
   display: block;
+  font-style: normal;
 }
 
 .hero__line--accent {
-  background: linear-gradient(96deg, var(--text) 8%, var(--primary-hover) 52%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  font-style: italic;
+  color: var(--primary);
 }
 
 .word {
@@ -880,14 +845,13 @@ main {
   display: inline-block;
   font-family: var(--font-display);
   font-size: clamp(4.2rem, 15vw, 9.5rem);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
-  background: linear-gradient(176deg, var(--text) 18%, var(--tone-color) 130%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--text);
+  text-shadow: 0 0 46px color-mix(in srgb, var(--tone-color) 45%, transparent);
+  transition: text-shadow var(--t-slow) var(--ease);
 }
 
 /* rail --------------------------------------------------------------------- */
@@ -906,8 +870,10 @@ main {
 .rail__fill {
   height: 100%;
   border-radius: var(--r-full);
-  background: linear-gradient(90deg, var(--primary) 0%, var(--tone-color) 100%);
-  transition: width var(--t-slow) var(--ease);
+  background: var(--tone-color);
+  transition:
+    width var(--t-slow) var(--ease),
+    background var(--t-slow) var(--ease);
 }
 
 .rail__zero {
@@ -1022,13 +988,17 @@ main {
 .op--plus:hover:not(:disabled) {
   border-color: var(--accent);
   color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(32, 214, 199, 0.1), 0 16px 34px -18px var(--accent);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--accent) 12%, transparent),
+    0 16px 34px -18px var(--accent);
 }
 
 .op--minus:hover:not(:disabled) {
   border-color: var(--warm);
   color: var(--warm);
-  box-shadow: 0 0 0 4px rgba(255, 184, 107, 0.1), 0 16px 34px -18px var(--warm);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--warm) 12%, transparent),
+    0 16px 34px -18px var(--warm);
 }
 
 .op:disabled {
@@ -1054,8 +1024,8 @@ main {
 .controls__step-value {
   font-family: var(--font-display);
   font-size: 1.75rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1091,8 +1061,8 @@ main {
 
 .chip.is-active {
   border-color: transparent;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
-  color: #fff;
+  background: var(--primary);
+  color: var(--bg);
   box-shadow: var(--shadow-brand);
   transform: translateY(-1px) scale(1.03);
 }
@@ -1168,12 +1138,12 @@ main {
 .field__shell:focus-within {
   border-color: var(--primary);
   background: var(--bg);
-  box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.14);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 14%, transparent);
 }
 
 .field.is-invalid .field__shell {
   border-color: var(--warm);
-  box-shadow: 0 0 0 4px rgba(255, 184, 107, 0.13);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--warm) 13%, transparent);
 }
 
 .field__input {
@@ -1366,9 +1336,9 @@ main {
   margin-top: 14px;
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.4vw, 2.75rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
   color: var(--accent-color);
 }

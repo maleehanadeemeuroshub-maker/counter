@@ -125,12 +125,12 @@ The build output in `dist/` is static, so any static host works.
 
 ## Design notes
 
-The palette is a single brand purple (`#7C5CFF`) on a near-black ground, with teal and amber used
-only to signal direction: teal for growth, amber for decline. Nothing else is coloured.
+The palette is a warm graphite ground with a single brand amber (`#CD9046`), with sage and rust
+used only to signal direction: sage for growth, rust for decline. Nothing else is coloured.
 
-Type is set in Sora for display and numerals, Inter for body copy, and JetBrains Mono for labels,
-timestamps and anything numeric that needs to line up. The counter number is the one place the
-design raises its voice — everything around it stays quiet.
+Type pairs Fraunces, an editorial serif, for display and numerals against Inter for body copy and
+JetBrains Mono for labels, timestamps and anything numeric that needs to line up. The counter
+number is the one place the design raises its voice — everything around it stays quiet.
 
 The rail beneath the number is the piece that ties the app together: it gives the minimum and
 maximum settings something visible to do, and it is the reason the bounds feel like part of the

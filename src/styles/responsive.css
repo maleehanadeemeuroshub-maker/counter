@@ -220,7 +220,6 @@
   }
 
   .ambient__glow,
-  .particle,
   .empty__icon,
   .status__dot {
     animation: none !important;
