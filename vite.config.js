@@ -14,16 +14,13 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     rollupOptions: {
-      // flow-wave.html is a second, fully self-contained entry point (plain
-      // Three.js, no React) — list it so `vite build` emits it into dist/.
+      // flow-wave.html is a second, plain-Three.js entry point (no React) —
+      // list it so `vite build` emits it into dist/ alongside the main app.
+      // Both entries resolve "three" through the npm dependency below.
       input: {
         main: resolvePath('index.html'),
         flowWave: resolvePath('flow-wave.html'),
       },
-      // flow-wave.html resolves "three" itself via its own <script type="importmap">
-      // at runtime (unpkg CDN) — it isn't an npm dependency, so Rollup must leave
-      // those bare imports alone instead of trying to bundle them.
-      external: (id) => id === 'three' || id.startsWith('three/'),
     },
   },
 });
