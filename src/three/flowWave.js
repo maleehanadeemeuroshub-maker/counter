@@ -469,6 +469,15 @@ export function createFlowWaveScene(canvas, { getScrollFraction }) {
   resize();
   frame();
 
+  // This build of EffectComposer has no dispose() of its own — only its
+  // render targets and any pass that owns extra targets (UnrealBloomPass)
+  // need cleaning up explicitly.
+  function disposeComposer(composer) {
+    composer.renderTarget1.dispose();
+    composer.renderTarget2.dispose();
+    composer.passes.forEach((pass) => pass.dispose?.());
+  }
+
   function dispose() {
     running = false;
     cancelAnimationFrame(rafId);
@@ -480,9 +489,9 @@ export function createFlowWaveScene(canvas, { getScrollFraction }) {
     pointsMaterial.dispose();
     atmoGeometry.dispose();
     atmoMaterial.dispose();
-    torusComposer.dispose();
-    bloomComposer.dispose();
-    finalComposer.dispose();
+    disposeComposer(torusComposer);
+    disposeComposer(bloomComposer);
+    disposeComposer(finalComposer);
     renderer.dispose();
   }
 
