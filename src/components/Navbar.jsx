@@ -5,7 +5,6 @@ const LINKS = [
   { href: '#features', label: 'Features' },
   { href: '#statistics', label: 'Statistics' },
   { href: '#history', label: 'History' },
-  { href: '/flow-wave.html', label: 'Flow Wave', external: true },
 ];
 
 function Mark() {
